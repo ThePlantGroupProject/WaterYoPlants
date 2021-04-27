@@ -1,9 +1,9 @@
-#### This script grabs links from the website 
-
 from bs4 import BeautifulSoup, SoupStrainer
 import requests
 import re
 
+
+## Displays the links gathered from main site to be added to links.txt
 url = "https://www.guide-to-houseplants.com/house-plants-encyclopedia-a-z.html"
 
 page = requests.get(url)    
