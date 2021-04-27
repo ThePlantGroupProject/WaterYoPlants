@@ -11,7 +11,7 @@ cur.execute('DROP TABLE IF EXISTS WaterCycle')
 cur.execute('CREATE TABLE WaterCycle (Plant TEXT, WateringDays INTEGER)')
 
 cur.execute('DROP TABLE IF EXISTS SoilType')
-cur.execute('CREATE TABLE SoilType (Plant TEXT, Soil Text)')
+cur.execute('CREATE TABLE SoilType (Plant TEXT, Soil TEXT)')
 
 conn.close()
 
