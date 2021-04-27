@@ -1,6 +1,6 @@
 #used to create the database
 
-#This code is what we would ue if we were inputting data in backend
+#This code is what we would use if we were inputting data in backend as well
 
 import sqlite3
 
