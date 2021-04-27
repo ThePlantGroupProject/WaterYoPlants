@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 import re
 
+## Opens Pre-made txt files with links to the 
 with open("links.txt") as file:
         for line in file:
             urls = line.strip()
@@ -9,12 +10,13 @@ with open("links.txt") as file:
         
 req = Request(urls)
 html_page = urlopen(req)
-
 soup = BeautifulSoup(html_page, "html.parser")
-
 html_text = soup.get_text()
 
-f = open("html_text.txt", "w",encoding="utf-8" )         # Creating html_text.txt File
+##   Create a reference File in which we can later strip needed date for database transfer
+f = open("large_reference_file.txt", "w",encoding="utf-8" )         
+
+## Loops the URL for data extraction for writting on the txt file
 for urls in html_text:
     for line in html_text:
         f.write(line)
