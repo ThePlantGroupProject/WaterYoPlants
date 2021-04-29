@@ -1,5 +1,5 @@
 
-###Grabs main head titles for database
+###Grabs main head titles for database ### This code isn't used. Keeping it as an alternative
 
 import urllib.request
 import ssl
