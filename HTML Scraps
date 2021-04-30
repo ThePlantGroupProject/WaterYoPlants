@@ -3,7 +3,7 @@
 import urllib.request
 import ssl
 
-fhandle=open('plant_headers.txt', 'w+')
+
 
 # # Ignore SSL certificate errors
 # ctx = ssl.create_default_context()
@@ -16,7 +16,7 @@ fhandle=open('plant_headers.txt', 'w+')
 
 from bs4 import BeautifulSoup
 
-fhandle = open('example.txt', 'w' , encoding = 'utf-8')
+fhandle = open('data_in_text.txt', 'w' , encoding = 'utf-8')
 with open("links.txt", 'r') as file:
         for line in file:                        
             urls = line.strip()
