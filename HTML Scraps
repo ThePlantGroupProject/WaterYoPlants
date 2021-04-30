@@ -1,16 +1,39 @@
-from bs4 import BeautifulSoup
-from urllib.request import Request, urlopen
-import re
+###Grabs main head titles for database ### This code isn't used. Keeping it as an alternative
 
-fhandle=open('reference.txt', 'w' , encoding= 'utf-8')
-## Opens Pre-made txt files with links to the 
-with open("links.txt") as file:
-        for line in file:
+import urllib.request
+import ssl
+
+fhandle=open('plant_headers.txt', 'w+')
+
+# # Ignore SSL certificate errors
+# ctx = ssl.create_default_context()
+# ctx.check_hostname = False
+# ctx.verify_mode = ssl.CERT_NONE
+# 
+# ### Needs to rotate links 
+
+
+
+from bs4 import BeautifulSoup
+
+fhandle = open('example.txt', 'w' , encoding = 'utf-8')
+with open("links.txt", 'r') as file:
+        for line in file:                        
             urls = line.strip()
-            #print(urls)
-            req = Request(urls)
-            html_page = urlopen(req)
-            soup = BeautifulSoup(html_page, "html.parser")
-            html_text = soup.get_text()
-            fhandle.write("\n {} ".format(html_text))
-fhandle.close()  
+            
+            if urls.startswith('https'):
+                content = urllib.request.urlopen(urls)
+                read_content = content.read()
+                soup = BeautifulSoup(read_content,'html.parser')
+                for string in soup.strings:
+                    string = string.rstrip('\n')
+                    string = string.strip('\xa0')
+                    repr(string)
+                    fhandle.write("\n {} ".format(string))
+            else:
+                continue
+
+
+
+
+
