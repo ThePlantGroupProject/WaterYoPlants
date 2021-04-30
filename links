@@ -13,5 +13,9 @@ soup = BeautifulSoup(data)
 
 for link in soup.find_all('a'):
     lnk = link.get('href')
-    f.write("\n {} ".format(lnk))
-    print(link.get('href'))
+    if lnk.startswith('https:'):
+        f.write("\n {} ".format(lnk))
+    else:
+        continue
+    
+f.close()
