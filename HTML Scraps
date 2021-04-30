@@ -2,23 +2,15 @@ from bs4 import BeautifulSoup
 from urllib.request import Request, urlopen
 import re
 
+fhandle=open('reference.txt', 'w' , encoding= 'utf-8')
 ## Opens Pre-made txt files with links to the 
 with open("links.txt") as file:
         for line in file:
             urls = line.strip()
-            
-        
-req = Request(urls)
-html_page = urlopen(req)
-soup = BeautifulSoup(html_page, "html.parser")
-html_text = soup.get_text()
-
-##   Create a reference File in which we can later strip needed date for database transfer
-f = open("large_reference_file.txt", "w",encoding="utf-8" )         
-
-## Loops the URL for data extraction for writting on the txt file
-for urls in html_text:
-    for line in html_text:
-        f.write(line)
-
-f.close()
+            #print(urls)
+            req = Request(urls)
+            html_page = urlopen(req)
+            soup = BeautifulSoup(html_page, "html.parser")
+            html_text = soup.get_text()
+            fhandle.write("\n {} ".format(html_text))
+fhandle.close()  
