@@ -1,0 +1,42 @@
+import re
+import json
+
+f = open('data_in_text.txt', 'r', encoding='utf-8')
+##Finds Data in between lines using Regex
+for line in f:
+    line = f.read()
+    botanical = re.findall(r'((?<=Botanical Name:) .*? \w+\s+\w+)', line, re.DOTALL)
+    origin = re.findall(r'((?<=Origin:).*?(?=Height:))', line, re.DOTALL)
+    temp = re.findall(r'((?<=Temperature:).*?(?=Soil:))', line, re.DOTALL)
+    soil = re.findall(r'((?<=Soil:).*?(?=Fertilizer:))', line, re.DOTALL)
+    height=re.findall(r'((?<=Height:).*?(?=Light:))', line, re.DOTALL)
+    light=re.findall(r'((?<=Light:).*?(?=Water:))', line, re.DOTALL)
+    water=re.findall(r'((?<=Water:).*?(?=Humidity:))', line, re.DOTALL)
+    fertilizer=re.findall(r'((?<=Fertilizer:).*?(?=Propagation:))', line, re.DOTALL)
+    propagation=re.findall(r'((?<=Propagation:).*?(?=Home))', line, re.DOTALL)
+    i = 0
+    plant = []
+    ##uses amount of attributes 
+    for p in range(len(origin)):
+        obj = {
+               "BotanicalName": botanical[i],
+               "Origin": origin[i],
+               "Temperature": temp[i],
+               "Soil": soil[i],
+               "Height": height[i],
+               'Light': light[i],
+               'Water': water[i],
+               'Fertilizer':fertilizer[i],
+               'Propagation': propagation[i]
+            
+               
+               }
+#####Adds Items to list/array        
+        plant.append(obj)
+        
+        i += 1
+
+json_obj=json.dumps(plant)
+fout = open("json_plants.json","w")
+fout.write(json_obj)
+fout.close()
