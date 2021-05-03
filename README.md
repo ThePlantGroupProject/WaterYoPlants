@@ -48,7 +48,7 @@ Creating a Database: Bethel
 
 Extracting Data from Database: Rudy
 
-Querying Data: Josh
+Querying Data: Josh and Rudy
 
 Notification: Carlos
 
@@ -56,7 +56,7 @@ Creating the GUI: Rudy
 
 Documentation: Bethel
 
-Presentation: Rudy
+Powerpoint Presentation: Josh
 
 
 
