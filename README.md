@@ -11,6 +11,7 @@ Our project hopes to resolve this issue by creating a plant watering reminder, a
 Throughout this project, we will be utilizing various packages, but we would like to highlight our use of BeautifulSoup and Urllib to collect our data through the web, as well as Sqllite3 to create our databases and extract data from them, and Tkinter to create our GUI for our application.
 
 Coolest Package!
+
 Tkinter
 
 Tkinter is an open source Python GUI library used as an interface for the Tk GUI toolkit. Tk is an open source software that provides basic elements that build a GUI. For our project, we used Tkinter to specifically create a background image, entry box, labels, a submit button, another window to display output, and incorporated data extraction from the submit button.
