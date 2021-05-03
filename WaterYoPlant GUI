@@ -1,0 +1,83 @@
+from tkinter import *
+import sqlite3
+
+
+root = Tk()
+root.title('WaterYoPlants, Where You Get All The Info About Yo Plants')
+root.geometry("1024x685")
+
+
+#backgroud image
+bg = PhotoImage(file="plants.png")
+lbl=Label(root, image=bg)
+lbl.place(x=0, y=0, relwidth=1, relheight=1)
+
+
+# connecting to the database
+conn = sqlite3.connect("WaterYoPlantsDatabase.db")
+# creating the cursor
+c = conn.cursor()
+
+
+# Title name on the GUI
+lbl=Label(root, text='WATER YO PLANTS', fg='green', font=("Helvetica", 20))
+lbl.place(x=300, y=25)
+
+
+# textbox label next to the entry box
+lbl1=Label(root, text='What is yo plants name?', fg='black', font=('Helvetica', 10))
+lbl1.place(x=250, y=100)
+
+
+# Input entrybox for search of the plants
+search=Entry(root, bd=5, bg="light green")
+search.place(x=500, y=100)
+search.focus()
+search.get()
+
+
+# querying from database based on the search entry
+def entrysearch(strPlantName):
+    # connecting to the database
+    conn = sqlite3.connect("WaterYoPlantsDatabase.db")
+    # creating the cursor
+    c = conn.cursor()
+    c.execute("SELECT * FROM WaterYoPlants WHERE Common_Name='" + strPlantName +"'")
+    plantinput = c.fetchall()
+    for row in plantinput:
+        strResult =  row[0] + "\n"
+        strResult = strResult + row[1] + "\n"
+        strResult = strResult + row[2] + "\n"
+        strResult = strResult + row[3] + "\n"
+        strResult = strResult + row[4] + "\n"
+        strResult = strResult + row[5] + "\n"
+        strResult = strResult + row[6] + "\n"
+        strResult = strResult + row[7] + "\n"
+        strResult = strResult + row[8] + "\n"
+        strResult = strResult + row[9] + "\n"
+        
+    return strResult
+
+        
+    conn.close()    
+    
+
+def myclick():
+    #creating a new window for the queryed info
+    plant_info_query=Tk()
+    plant_info_query.title("WaterYoPlants with YoPlantInfo")
+    plant_info_query.geometry("910x616")
+    # querys the informatino based on what the user types in
+    typed_in = entrysearch(search.get())
+    #for x in typed_in:
+    label_for_search = Label(plant_info_query, text=typed_in, wraplength=900, justify="center")
+    label_for_search.pack()
+
+
+
+# button for querying the information
+B1=Button(root, text='SubmitYoPlant', command=myclick, bg="light green")
+B1.place(x=400, y=200)
+
+
+root.mainloop()
