@@ -41,21 +41,21 @@ Some setbacks we had were figuring out how to find the specific information in t
 
 Contributions
 
-Web Scraping: Carlos,
+Web Scraping: Carlos
 
-Creating a Database: Bethel,
+Creating a Database: Bethel
 
-Extracting Data from Database: Rudy,
+Extracting Data from Database: Rudy
 
-Querying Data: Josh,
+Querying Data: Josh
 
-Notification: Carlos,
+Notification: Carlos
 
-Creating the GUI: Rudy,
+Creating the GUI: Rudy
 
-Documentation: Bethel,
+Documentation: Bethel
 
-Presentation: Rudy,
+Presentation: Rudy
 
 
 
