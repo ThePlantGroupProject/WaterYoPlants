@@ -35,14 +35,14 @@ Some setbacks we had were figuring out how to find the specific information in t
 
 Contributions
 
-Web Scraping: Carlos
-Creating a Database: Bethel
-Extracting Data from Database: Rudy
-Querying Data: Josh
-Notification: Carlos
-Creating the GUI: Rudy
-Documentation: Bethel
-Presentation: Rudy
+Web Scraping: Carlos,
+Creating a Database: Bethel,
+Extracting Data from Database: Rudy,
+Querying Data: Josh,
+Notification: Carlos,
+Creating the GUI: Rudy,
+Documentation: Bethel,
+Presentation: Rudy,
 
 
 
