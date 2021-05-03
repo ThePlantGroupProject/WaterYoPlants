@@ -26,7 +26,7 @@ with open("links.txt", 'r') as file:
                 read_content = content.read()
                 soup = BeautifulSoup(read_content,'html.parser')
                 for string in soup.strings:
-                    string = string.rstrip('\n')
+                    #string = string.strip('\n')
                     string = string.strip('\xa0')
                     repr(string)
                     fhandle.write("\n {} ".format(string))
